@@ -1,2 +1,9 @@
 import axios from "axios";
-export const api = axios.create({ baseURL: "/api" }); // Vite proxy sends to :8080
+
+const api = axios.create({
+  baseURL: import.meta.env.PROD 
+    ? 'https://visualml-backend-production.up.railway.app/api'
+    : '/api'
+});
+
+export { api };
